@@ -1,5 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Hero from '../components/Hero.astro'
+import Container from "../components/Container.astro";
+import Experience from "../components/Experience.astro";
+import BriefcaseIcon from "../icons/BriefcaseIcon.astro";
+import Education from '../components/Education.astro'
+import BookIcon from "../icons/BookIcon.astro";
 ---
 
 <Layout
@@ -7,7 +13,24 @@ import Layout from "../layouts/Layout.astro";
   description="Contrata a David Menéndez Blanco para crear tu aplicación web. Especializado en crear aplicaciones con tecnologías modernas y buenas prácticas"
 >
   <main>
-	
+	<Container>
+		<Hero />
+	</Container>
+	<Container>
+    <div class="flex items-center gap-4 mb-5">
+      <BriefcaseIcon class="size-8"/>
+      <h2 class="text-2xl font-semibold">Experiencia</h2>
+    </div>
+		<Experience />
+	</Container>
+
+  <Container>
+    <div class="flex items-center gap-4 mb-5">
+      <BookIcon class="size-8"/>
+      <h2 class="text-2xl font-semibold">Educación</h2>
+    </div>
+    <Education />
+  </Container>
   </main>
 </Layout>
 

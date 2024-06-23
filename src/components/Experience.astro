@@ -1,0 +1,37 @@
+---
+import Timeline from "./Timeline.astro";
+
+const experienceData = [
+  {
+    title: "Desarrollador Web",
+    company: "Sico S.L",
+    description:
+      "Diseño de UI, desarrollo de API Rest, realizar pruebas xUnit Testing",
+    date: "2024",
+  },
+  {
+    title: "Dependiente",
+    company: "Bocatería Punto Final",
+    description:
+      "Atención al cliente, cobros, control de pedidos, stock, compras, ventas, reposición, limpieza del local.",
+    date: "2016 - 2024",
+  },
+  {
+    title: "Dependiente",
+    company: "Almacenes Ladislao",
+    description:
+      "Atención al cliente, cobros, control de pedidos, stock, compras, ventas, reposición.",
+    date: "2021 - 2022",
+  },
+  {
+    title: "Mozo de almacén",
+    company: "Ikea ibérica",
+    description:
+      "Preparar pedidos, reposición, limpieza del almacén, manejo de carretilla elevadora.",
+    date: "2019 - 2020",
+  },
+];
+---
+
+<Timeline data={experienceData} />;
+

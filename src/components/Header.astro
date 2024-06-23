@@ -1,12 +1,69 @@
-<header class="flex justify-center items-center py-5 w-full xl:w-[1120px] mx-auto">
-    <nav>
-        <ul class="flex justify-center items-center gap-x-5 mt-10 ">
-            <li><a href="#top">Inicio</a></li>
-            <li><a href="#about">Sobre mí</a></li>
-            <li><a href="#projects">Proyectos</a></li>
-            <li><a href="#experience">Experiencia</a></li>
-            <li><a href="#education">Estudios</a></li>
-            <li><a href="#contact">Contacto</a></li>
-        </ul>
-    </nav>
+---
+import BookIcon from "../icons/BookIcon.astro";
+import BriefcaseIcon from "../icons/BriefcaseIcon.astro";
+import ContactIcon from "../icons/MessengerIcon.astro";
+import HomeIcon from "../icons/HomeIcon.astro";
+import ProjectsIcon from "../icons/ProjectsIcon.astro";
+import UserIcon from "../icons/UserIcon.astro";
+
+const navItems = [
+  {
+    name: "Home",
+    label: "inicio",
+    href: "#top",
+    icon: HomeIcon,
+  },
+  {
+    name: "About",
+    label: "sobre-mi",
+    href: "#about",
+    icon: UserIcon,
+  },
+  {
+    name: "Projects",
+    label: "proyectos",
+    href: "#projects",
+    icon: ProjectsIcon,
+  },
+  {
+    name: "Experience",
+    label: "experiencia",
+    href: "#experience",
+    icon: BriefcaseIcon,
+  },
+  {
+    name: "Education",
+    label: "estudios",
+    href: "#education",
+    icon: BookIcon,
+  },
+  {
+    name: "Contact",
+    label: "contacto",
+    href: "#contact",
+    icon: ContactIcon,
+  },
+];
+---
+
+<header
+  class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-2"
+>
+  <nav
+    class="flex px-3 text-sm font-medium rounded-full text-gray-600 dark:text-gray-200 justify-center items-center"
+  >
+    {
+      navItems.map((link) => (
+        <a
+          href={link.href}
+          class="relative block px-2 py-2 transition "
+          aria-label={link.label}
+        >
+          {link.icon ? (
+            <link.icon class="size-[1.5rem] hover:text-yellow-500 dark:hover:text-yellow-400" />
+          ) : null}
+        </a>
+      ))
+    }
+  </nav>
 </header>
