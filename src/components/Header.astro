@@ -7,42 +7,42 @@ import ProjectsIcon from "../icons/ProjectsIcon.astro";
 import UserIcon from "../icons/UserIcon.astro";
 
 const navItems = [
+  // {
+  //   name: "Home",
+  //   label: "inicio",
+  //   href: "#top",
+  //   icon: HomeIcon,
+  // },
   {
-    name: "Home",
-    label: "inicio",
-    href: "#top",
-    icon: HomeIcon,
-  },
-  {
-    name: "About",
-    label: "sobre-mi",
-    href: "#about",
-    icon: UserIcon,
-  },
-  {
-    name: "Projects",
+    name: "Projectos",
     label: "proyectos",
     href: "#projects",
     icon: ProjectsIcon,
   },
   {
-    name: "Experience",
+    name: "Experiencia",
     label: "experiencia",
     href: "#experience",
     icon: BriefcaseIcon,
   },
   {
-    name: "Education",
+    name: "Estudios",
     label: "estudios",
     href: "#education",
     icon: BookIcon,
   },
   {
-    name: "Contact",
-    label: "contacto",
-    href: "#contact",
-    icon: ContactIcon,
+    name: "Sobre mí",
+    label: "sobre-mi",
+    href: "#about",
+    icon: UserIcon,
   },
+  // {
+  //   name: "Contact",
+  //   label: "contacto",
+  //   href: "#contact",
+  //   icon: ContactIcon,
+  // },
 ];
 ---
 
@@ -56,14 +56,60 @@ const navItems = [
       navItems.map((link) => (
         <a
           href={link.href}
-          class="relative block px-2 py-2 transition "
+          class="relative block px-2 py-2 transition"
           aria-label={link.label}
+          id={`nav-${link.label}`}
         >
-          {link.icon ? (
-            <link.icon class="size-[1.5rem] hover:text-yellow-500 dark:hover:text-yellow-400" />
-          ) : null}
+          {/* {link.icon ? (
+            <link.icon class="size-[1.5rem] hover:text-[#1890ff]" />
+          ) : null} */}
+          {link.name}
         </a>
       ))
     }
   </nav>
 </header>
+
+<style>
+  .active {
+    color: #1890ff !important;
+  }
+
+  nav {
+    animation: nav-shadow 1s linear both;
+    animation-timeline: scroll();
+    animation-range: 0 100px;
+  }
+
+  @keyframes nav-shadow {
+    to {
+      @apply shadow-lg ring-1 backdrop-blur dark:bg-gray-800/90 bg-white/50 ring-white/10;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('nav a');
+
+    const observerOptions = {
+      threshold: 0.3,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const navLink = document.querySelector(`nav a[href="#${entry.target.id}"]`);
+        if (entry.isIntersecting) {
+          navLink?.classList.add('active');
+        } else {
+          navLink?.classList.remove('active');
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  });
+</script>

@@ -1,0 +1,106 @@
+---
+
+import ReactIcon from "../icons/ReactIcon.astro";
+import ExpressIcon from "../icons/ExpressIcon.astro";
+import TailwindIcon from "../icons/TailwindIcon.astro";
+import Button from "./Button.astro";
+import GithubIcon from "../icons/GithubIcon.astro";
+import LinkIcon from "../icons/LinkIcon.astro";
+
+
+interface Project {
+  title: string;
+  description: string;
+  tags: Array<keyof typeof Tags>;
+  link: string;
+  github: string;
+  image: string;
+}
+
+const Tags = {
+  REACT: {
+    name: "React",
+    class: "bg-[#003159] text-white",
+    icon: ReactIcon,
+  },
+  EXPRESS: {
+    name: "Express.js",
+    class: "bg-[#215732] text-white",
+    icon: ExpressIcon,
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class: "bg-[#003159] text-white",
+    icon: TailwindIcon,
+  },
+  // AWS: {
+  //     name: "AWS",
+  //     class: "bg-black text-white",
+  //     icon: AwsIcon
+  // },
+  // DOCKER: {
+  //     name: "Docker",
+  //     class: "bg-[#003159] text-white",
+  //     icon: DockerIcon
+  // }
+};
+
+const projectsData: Project[] = [
+  {
+    title: "Wander Whiskers - Encuentra a tu amigo peludo",
+    description:
+      "Plataforma dedicada a ayudar a las mascotas a encontrar un hogar. Facilitando la búsqueda de animales perdidos para que puedan reunirse con sus dueños y ayudando a aquellas en estado de adopción a encontrar una nueva familia.",
+    tags: ["REACT", "EXPRESS", "TAILWIND"],
+    link: "https://www.wander-whiskers.eu/",
+    github: "https://github.com/DavCode46/TFC_Wander_Whiskers",
+    image: "/wander-whiskers.webp",
+  },
+];
+
+
+---
+
+<ul class="w-[90%] md:w-[100%] block mx-auto">
+  {
+    projectsData.map(({ title, description, image, tags, github, link }) => (
+      <li class="flex flex-col md:flex-row gap-5 md:gap-10">
+        <img src={image} alt={title} class="rounded-xl md:h-[18rem] md:w-[30rem]" />
+        <div class="md:flex md:flex-col">
+          <h2 class="text-2xl font-bold mb-5">{title}</h2>
+          <ul class="flex gap-x-3">
+            {tags.map((tagKey) => {
+              const tag = Tags[tagKey];
+              if (!tag) return null;
+              const TagIcon = tag.icon;
+              return (
+                <li>
+                  <span
+                    class={`${tag.class} flex gap-x-2 rounded-full text-xs py-1 px-2 mb-4`}
+                  >
+                    <TagIcon class="size-4" />
+                    {tag.name}
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
+          <p class="text-md">{description}</p>
+          <footer class="flex items-end justify-start mt-4 gap-x-4">
+          {github && (
+            <Button href={github}>
+              <GithubIcon class="size-6" />
+              Code
+            </Button>
+          )}
+          {link && (
+            <Button href={link}>
+              <LinkIcon class="size-4" />
+              Preview
+            </Button>
+          )}
+        </footer>
+        </div>
+      </li>
+    ))
+  }
+</ul>
