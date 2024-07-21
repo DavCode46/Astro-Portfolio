@@ -29,7 +29,7 @@ const Tags = {
     icon: ExpressIcon,
   },
   TAILWIND: {
-    name: "Tailwind CSS",
+    name: "Tailwind",
     class: "bg-[#003159] text-white",
     icon: TailwindIcon,
   },
@@ -51,9 +51,9 @@ const projectsData: Project[] = [
     description:
       "Plataforma dedicada a ayudar a las mascotas a encontrar un hogar. Facilitando la búsqueda de animales perdidos para que puedan reunirse con sus dueños y ayudando a aquellas en estado de adopción a encontrar una nueva familia.",
     tags: ["REACT", "EXPRESS", "TAILWIND"],
-    link: "https://www.wander-whiskers.eu/",
+    link: "https://wander-whiskers-client.onrender.com",
     github: "https://github.com/DavCode46/TFC_Wander_Whiskers",
-    image: "/wander-whiskers.webp",
+    image: "/wander-whiskers-laptop.webp",
   },
 ];
 
@@ -64,7 +64,7 @@ const projectsData: Project[] = [
   {
     projectsData.map(({ title, description, image, tags, github, link }) => (
       <li class="flex flex-col md:flex-row gap-5 md:gap-10">
-        <img src={image} alt={title} class="rounded-xl md:h-[18rem] md:w-[30rem]" />
+        <img src={image} alt={title} class="rounded-xl md:h-[20rem] md:w-[40rem]" />
         <div class="md:flex md:flex-col">
           <h2 class="text-2xl font-bold mb-5">{title}</h2>
           <ul class="flex gap-x-3">

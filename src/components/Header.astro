@@ -1,18 +1,10 @@
 ---
 import BookIcon from "../icons/BookIcon.astro";
 import BriefcaseIcon from "../icons/BriefcaseIcon.astro";
-import ContactIcon from "../icons/MessengerIcon.astro";
-import HomeIcon from "../icons/HomeIcon.astro";
 import ProjectsIcon from "../icons/ProjectsIcon.astro";
 import UserIcon from "../icons/UserIcon.astro";
 
 const navItems = [
-  // {
-  //   name: "Home",
-  //   label: "inicio",
-  //   href: "#top",
-  //   icon: HomeIcon,
-  // },
   {
     name: "Projectos",
     label: "proyectos",
@@ -37,12 +29,6 @@ const navItems = [
     href: "#about",
     icon: UserIcon,
   },
-  // {
-  //   name: "Contact",
-  //   label: "contacto",
-  //   href: "#contact",
-  //   icon: ContactIcon,
-  // },
 ];
 ---
 
@@ -60,9 +46,6 @@ const navItems = [
           aria-label={link.label}
           id={`nav-${link.label}`}
         >
-          {/* {link.icon ? (
-            <link.icon class="size-[1.5rem] hover:text-[#1890ff]" />
-          ) : null} */}
           {link.name}
         </a>
       ))
@@ -91,7 +74,6 @@ const navItems = [
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('nav a');
 
     const observerOptions = {
       threshold: 0.3,

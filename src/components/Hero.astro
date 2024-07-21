@@ -3,43 +3,53 @@ import Badge from './Badge.astro'
 import MailIcon from '../icons/MailIcon.astro'
 import LinkedInIcon from '../icons/LinkedInIcon.astro'
 import SocialPill from './SocialPill.astro'
+import GithubIcon from '../icons/GithubIcon.astro'
+import Skills from './Skills.astro'
 ---
 
-<div class="max-w-xl mt-[8rem]">
-  <div class="flex gap-4 mb-4">
+<div class="max-w-full mt-16 px-4 sm:px-6 lg:px-8">
+  <div class="flex flex-col items-center sm:flex-row sm:items-start gap-8 mb-8">
     <img
-      class="rounded-full shadow-lg size-20 object-cover "
+      class="rounded-md shadow-xl w-40 h-40 object-cover"
       src="/me.webp"
       alt="David Menéndez Blanco"
     />
-    <a
-      href="https://www.linkedin.com/in/david-menendez-blanco-056a18252/"
-      target="_blank"
-      rel="noopener"
-      class="flex items-center transition duration-300 md:justify-center md:hover:scale-105"
-    >
-      <Badge>Disponible para trabajar</Badge>
-    </a>
+    <div class="flex flex-col justify-start items-center sm:items-start gap-4">
+      <h1 class="text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl text-center sm:text-left">
+        David Menéndez Blanco
+      </h1>
+      <strong class="text-[#1890ff] text-2xl font-semibold">Desarrollador Web</strong>
+      <a
+        href="https://www.linkedin.com/in/david-menendez-blanco-056a18252/"
+        target="_blank"
+        rel="noopener"
+        class="flex items-center transition duration-300 hover:scale-105"
+      >
+        <Badge>Disponible para trabajar</Badge>
+      </a>
+    </div>
   </div>
-  <h1
-    class="text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl"
-  >
-    Hey, soy David
-  </h1>
-  <p
-    class="mt-6 text-xl text-gray-800 [&>strong]:text-[#1890ff] [&>strong]:font-semibold"
-  >
-    <strong>Desarrollador Web</strong
-    > de Asturias, España. Especializado en el desarrollo de interfaces de usuario rápidas e intuitivas.
+  <p class="mt-4 text-xl text-gray-800 text-center sm:text-left">
+   Desarrollador de Asturias, España. Apasionado por crear experiencias digitales.
+   Mi enfoque se centra en diseñar interfaces de usuario que combinan velocidad, usabilidad intuitiva y estética visual.
   </p>
-  <nav class="flex flex-wrap gap-4 mt-8">
+
+  <div>
+    <Skills />
+  </div>
+  
+  <nav class="flex flex-wrap justify-center sm:justify-start gap-4 mt-8">
     <SocialPill href="mailto:davidblanco1993@gmail.com">
-      <MailIcon class="size-4" />
+      <MailIcon class="w-5 h-5" />
       Contáctame
     </SocialPill>
     <SocialPill href="https://www.linkedin.com/in/david-menendez-blanco-056a18252/">
-      <LinkedInIcon class="size-4 text-[#0077B5]" />
+      <LinkedInIcon class="w-5 h-5 text-[#0077B5]" />
       LinkedIn
+    </SocialPill>
+    <SocialPill href="https://github.com/DavCode46">
+      <GithubIcon class="w-5 h-5" />
+      GitHub
     </SocialPill>
   </nav>
 </div>
